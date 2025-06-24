@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const SearchField = () => {
-  const [search, setSearch] = useState("lebron");
+  const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
   const userSearch = search.split(" ").join("+");
   const url = `http://api.giphy.com/v1/gifs/search?q=${userSearch}&api_key=t5xMiavNzfSlVB7lXV5ZNmxoa09vmPQG`;
@@ -18,7 +18,7 @@ const SearchField = () => {
 
   useEffect(() => {
     fetchSearch();
-  }, []);
+  }, [search]);
 
   // console.log("Search", search);
   console.log("RESULTS", results);
